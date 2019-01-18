@@ -1,0 +1,30 @@
+﻿@model IMarket.Models.StockViewModel
+
+@{
+    ViewBag.Title = "Products not found";
+}
+
+<h2>Products not found</h2>
+<hr />
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Color</th>
+            <th>Delivery Date</th>
+            <th>Type</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.ItemsNotFound)
+        {
+            <tr>
+                <td>@item.Name</td>
+                <td>@item.Color</td>
+                <td>@item.DeliveryTime</td>
+                <td>@item.Type</td>
+            </tr>
+        }
+    </tbody>
+</table>
