@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-using IMarket.BusinessLogic.Services.Abstracts;
+﻿using IMarket.BusinessLogic.Services.Abstracts;
 using IMarket.Models;
+using System.Web.Mvc;
 
 namespace IMarket.Controllers
 {
@@ -19,17 +15,13 @@ namespace IMarket.Controllers
 
         public ActionResult Index()
         {
-            return View();
-        }
-
-        public ActionResult GetStock()
-        {
             var model = new StockViewModel
             {
                 Items = _stockService.GetProducts(),
                 ItemsCount = _stockService.GetCountOfItemsInStock()
             };
             return View(model);
+
         }
 
         public ActionResult Contact()
@@ -37,6 +29,26 @@ namespace IMarket.Controllers
             ViewBag.Message = "Your contact page.";
 
             return View();
+        }
+
+        public ActionResult GetAllItemsOutOfStock()
+        {
+            var model = new StockViewModel
+            {
+                ItemsOutOfStock = _stockService.GetProductsOutOfStock()
+            };
+
+            return View(model);
+        }
+
+        public ActionResult GetAllItemNotFound()
+        {
+            var model = new StockViewModel
+            {
+                ItemsNotFound = _stockService.GetProductsNotFound()
+            };
+
+            return View(model);
         }
     }
 }

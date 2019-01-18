@@ -1,10 +1,11 @@
-﻿@{
-    ViewBag.Title = "Stock";
+﻿@model IMarket.Models.StockViewModel
+
+@{
+    ViewBag.Title = "Products out of stock";
 }
 
-<h2>Stock</h2>
+<h2>Products out of stock</h2>
 <hr />
-<div><p>Products in stock: @Model.ItemsCount</p></div>
 
 <table class="table table-bordered">
     <thead>
@@ -16,7 +17,7 @@
         </tr>
     </thead>
     <tbody>
-        @foreach (var item in Model.Items)
+        @foreach (var item in Model.ItemsOutOfStock)
         {
             <tr>
                 <td>@item.Name</td>
@@ -27,4 +28,3 @@
         }
     </tbody>
 </table>
-

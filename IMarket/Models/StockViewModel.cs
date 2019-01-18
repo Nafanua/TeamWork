@@ -10,6 +10,10 @@ namespace IMarket.Models
     {
         public IEnumerable<ItemBase> Items { get; set; }
 
+        public IEnumerable<ItemBase> ItemsOutOfStock { get; set; }
+
+        public IEnumerable<ItemBase> ItemsNotFound { get; set; }
+
         public int ItemsCount { get; set; }
     }
 }
