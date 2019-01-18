@@ -38,5 +38,25 @@ namespace IMarket.Controllers
 
             return View();
         }
+
+        public ActionResult GetAllItemsOutOfStock()
+        {
+            var model = new StockViewModel
+            {
+                ItemsOutOfStock = _stockService.GetProductsOutOfStock()
+            };
+
+            return View();
+        }
+
+        public ActionResult GetAllItemNotFound()
+        {
+            var model = new StockViewModel
+            {
+                ItemsNotFound = _stockService.GetProductsNotFound()
+            };
+
+            return View();
+        }
     }
 }

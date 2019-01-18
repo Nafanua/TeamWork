@@ -77,6 +77,24 @@ namespace IMarket.DAL
                 Name = "Red Sticks",Lenght = 1.9, Weight = 1.7, Type = ItemType.WinterSport},
         };
 
+        private static readonly List<ItemBase> ItemNotFound = new List<ItemBase>
+        {
+            new ClothesModel{ClothesType = ClothesType.TShirt, Color = "White", DeliveryTime = new  DateTime(2018, 11, 08),
+                Material = "Cotton", Name = "White TShirt",Size = "46 - 56", Weight = 0.5, Type = ItemType.Clothes},
+            new ClothesModel{ClothesType = ClothesType.Pants, Color = "Blue", DeliveryTime = new  DateTime(2018, 11, 07),
+                Material = "Cotton", Name = "Blue Pants",Size = "48 - 56", Weight = 0.7, Type = ItemType.Clothes},
+            new SportsAccessoriesModel{SportsAccessoriesType = SportsAccessoriesType.Stopwatch, Color = "Blue", DeliveryTime = new  DateTime(2018, 11, 07),
+                Name = "Blue Stopwatch", Weight = 0.5, Type = ItemType.SportAccessories}
+        };
+
+        private static readonly List<ItemBase> ItemOutOfStock = new List<ItemBase>
+        {
+            new WinterSportsModel{WinterSportsType = WinterSportsType.Sled, Color = "Green", DeliveryTime = new  DateTime(2018, 11, 07),
+                Name = "Green Sled",Lenght = 0.8, Weight = 2.5, Type = ItemType.WinterSport},
+            new WinterSportsModel{WinterSportsType = WinterSportsType.Sticks, Color = "Yellow", DeliveryTime = new  DateTime(2018, 11, 07),
+                Name = "Yellow Sticks",Lenght = 1.9, Weight = 1.7, Type = ItemType.WinterSport}
+        };
+
         public static double GetStorageCapacity()
         {
             return Stock.Sum(i => i.Weight);
@@ -112,6 +130,26 @@ namespace IMarket.DAL
         public static int GetCountOfItemsInStock()
         {
             return Stock.Count;
+        }
+
+        public static IEnumerable<ItemBase> GetAllItemsOutOfStock()
+        {
+            return ItemOutOfStock.GetRange(0, ItemOutOfStock.Count);
+        }
+
+        public static IEnumerable<ItemBase> GetAllItemNotFound()
+        {
+            return ItemNotFound.GetRange(0, ItemNotFound.Count);
+        }
+        
+        public static void AddToItemNotFound(ItemBase item)
+        {
+            ItemNotFound.Add(item);
+        }
+
+        public static void AddToItemOutOfStock(ItemBase item)
+        {
+            ItemOutOfStock.Add(item);
         }
     }
 }
