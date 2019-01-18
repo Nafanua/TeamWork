@@ -19,5 +19,14 @@ namespace IMarket.Controllers
 
             return View();
         }
+
+        [HttpGet]
+        public ViewResult StartWork()
+        {
+            //ToDo start working shop logic
+            ViewBag.Start = "Started";
+
+            return View("Index");
+        }
     }
 }
