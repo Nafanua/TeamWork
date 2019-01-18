@@ -41,14 +41,14 @@ namespace IMarket.Controllers
             return View(model);
         }
 
-        //public ActionResult GetAllItemNotFound()
-        //{
-        //    var model = new StockViewModel
-        //    {
-        //        ItemsNotFound = _stockService.GetProductsNotFound()
-        //    };
+        public ActionResult GetAllItemNotFound()
+        {
+            var model = new StockViewModel
+            {
+                ItemsNotFound = _stockService.GetProductsNotFound()
+            };
 
-        //    return View();
-        //}
+            return View(model);
+        }
     }
 }
