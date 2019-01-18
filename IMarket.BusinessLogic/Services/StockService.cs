@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using IMarket.BusinessLogic.Services.Abstracts;
+﻿using IMarket.BusinessLogic.Services.Abstracts;
 using IMarket.DAL;
 using IMarket.Models.Models;
+using System.Collections.Generic;
 
 namespace IMarket.BusinessLogic.Services
 {
