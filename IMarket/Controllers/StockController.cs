@@ -23,7 +23,5 @@ namespace IMarket.Controllers
 
             return View(model);
         }
-
-        
     }
 }
