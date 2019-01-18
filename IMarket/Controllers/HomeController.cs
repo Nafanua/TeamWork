@@ -26,7 +26,7 @@ namespace IMarket.Controllers
 
         public ActionResult Contact()
         {
-            ViewBag.Message = "Your contact page.";
+            ViewBag.Message = "If you have qustions, please let us know:";
 
             return View();
         }
