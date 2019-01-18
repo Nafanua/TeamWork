@@ -4,7 +4,6 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using IMarket.BusinessLogic.Services.Abstracts;
-using IMarket.Models;
 
 namespace IMarket.Controllers
 {
@@ -25,7 +24,7 @@ namespace IMarket.Controllers
                 ItemsCount = _stockService.GetCountOfItemsInStock()
             };
             return View(model);
-        }
+
 
         public ActionResult Contact()
         {
