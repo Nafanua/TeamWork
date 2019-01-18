@@ -12,5 +12,7 @@ namespace IMarket.Models.Models
         public WinterSportsType WinterSportsType { get; set; }
 
         public double Lenght { get; set; }
+
+        public int fgnfg;
     }
 }
