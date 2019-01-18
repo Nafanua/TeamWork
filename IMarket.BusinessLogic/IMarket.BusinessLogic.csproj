@@ -46,10 +46,9 @@
     <Compile Include="Services\Abstracts\IStockService.cs" />
     <Compile Include="Services\ShopService.cs" />
     <Compile Include="Services\StockService.cs" />
+    <Compile Include="Utils\Randomizer.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Utils\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\IMarket.DAL\IMarket.DAL.csproj">
       <Project>{01b3b2ac-b49e-481d-913b-8455a5937c1e}</Project>
