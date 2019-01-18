@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-using IMarket.BusinessLogic.Services.Abstracts;
+﻿using IMarket.BusinessLogic.Services.Abstracts;
 using IMarket.Models;
+using System.Web.Mvc;
 
 namespace IMarket.Controllers
 {
@@ -17,7 +13,7 @@ namespace IMarket.Controllers
             _stockService = stockService;
         }
 
-        public ActionResult index()
+        public ActionResult Index()
         {
             var model = new StockViewModel
             {
