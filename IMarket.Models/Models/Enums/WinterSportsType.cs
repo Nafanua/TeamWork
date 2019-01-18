@@ -8,8 +8,11 @@ namespace IMarket.Models.Models.Enums
 {
     public enum WinterSportsType
     {
+        // Лыжи
         Skiing,
+        // Санки
         Sled,
+        // Клюшки
         Sticks
     }
 }
