@@ -1,10 +1,10 @@
 ﻿@model IMarket.Models.StockViewModel
 
 @{
-    ViewBag.Title = "Products out of stock";
+    ViewBag.Title = "Products not found";
 }
 
-<h2>Products out of stock</h2>
+<h2>Products not found</h2>
 <hr />
 
 <table class="table table-bordered">
@@ -12,12 +12,12 @@
         <tr>
             <th>Name</th>
             <th>Color</th>
-            <th>Received Date</th>
+            <th>Delivery Date</th>
             <th>Type</th>
         </tr>
     </thead>
     <tbody>
-        @foreach (var item in Model.ItemsOutOfStock)
+        @foreach (var item in Model.ItemsNotFound)
         {
             <tr>
                 <td>@item.Name</td>
