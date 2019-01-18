@@ -9,7 +9,6 @@ namespace IMarket.Models.Models.Enums
     public enum ClothesType
     {
         TShirt,
-        Dress,
         Pants,
         Shoes
     }
