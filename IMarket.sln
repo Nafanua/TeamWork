@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.271
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IMarket", "IMarket\IMarket.csproj", "{C4FCAC5B-38A6-4F39-919D-BDBBBB21F8AB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IMarket.UI", "IMarket\IMarket.UI.csproj", "{C4FCAC5B-38A6-4F39-919D-BDBBBB21F8AB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IMarket.BusinessLogic", "IMarket.BusinessLogic\IMarket.BusinessLogic.csproj", "{D5A1FFDF-FED1-4167-A199-43622D468307}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IMarket.Models", "IMarket.Models\IMarket.Models.csproj", "{46981B99-8B51-4BA4-9CD9-FA34742D5F66}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +19,14 @@ Global
 		{C4FCAC5B-38A6-4F39-919D-BDBBBB21F8AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C4FCAC5B-38A6-4F39-919D-BDBBBB21F8AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C4FCAC5B-38A6-4F39-919D-BDBBBB21F8AB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D5A1FFDF-FED1-4167-A199-43622D468307}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D5A1FFDF-FED1-4167-A199-43622D468307}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D5A1FFDF-FED1-4167-A199-43622D468307}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D5A1FFDF-FED1-4167-A199-43622D468307}.Release|Any CPU.Build.0 = Release|Any CPU
+		{46981B99-8B51-4BA4-9CD9-FA34742D5F66}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{46981B99-8B51-4BA4-9CD9-FA34742D5F66}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{46981B99-8B51-4BA4-9CD9-FA34742D5F66}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{46981B99-8B51-4BA4-9CD9-FA34742D5F66}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,10 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using IMarket.Models.Enums;
+using IMarket.Models.Models.Enums;
 
-namespace IMarket.Models
+namespace IMarket.Models.Models
 {
     public class ItemBase
     {
