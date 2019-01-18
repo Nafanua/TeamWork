@@ -1,14 +1,16 @@
-﻿using IMarket.Models.Models;
+
 using IMarket.Models.Models.Enums;
 using System;
+using IMarket.Models.Models;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace IMarket.DAL
 {
     public static class Storage
     {
-        public const double StorageCapacity = 1000;
-        public static IEnumerable<ItemBase> Stock = new List<ItemBase> {
+        public const double MaximumStorageCapacity = 1000;
+        private static IEnumerable<ItemBase> Stock = new List<ItemBase> {
             // Clothes
             new Clothes{ClothesType = ClothesType.TShirt, Color = "White", DeliveryTime = new  DateTime(2018, 11, 07),
                 Material = "Cotton", Name = "White TShirt",Size = "46 - 56", Weight = 0.5},
@@ -75,5 +77,37 @@ namespace IMarket.DAL
             new WinterSports{WinterSportsType = WinterSportsType.Sticks, Color = "Red", DeliveryTime = new  DateTime(2018, 11, 07),
                 Name = "Red Sticks",Lenght = 1.9, Weight = 1.7},
         };
+
+        public static double GetStorageCapacity()
+        {
+            return Stock.Sum(i => i.Weight);
+        }
+
+        public static bool AddToStorage(ItemBase item)
+        {
+            if (GetStorageCapacity() >= MaximumStorageCapacity)
+            {
+                return false;
+            }
+
+            Stock.Add(item);
+
+            return true;
+        }
+
+        public static IEnumerable<ItemBase> GetAll()
+        {
+            return Stock.GetRange(0, Stock.Count);
+        }
+
+        public static IEnumerable<ItemBase> GetByName(string name)
+        {
+            return Stock.Where(i => i.Name.Equals(name));
+        }
+
+        public static IEnumerable<ItemBase> GetMany(Func<ItemBase, bool> filter)
+        {
+            return Stock.Where(filter);
+        }
     }
 }
