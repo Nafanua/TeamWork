@@ -3,7 +3,7 @@ using IMarket.Models.Models.Enums;
 
 namespace IMarket.Models.Models
 {
-    public class ItemBase
+    public abstract class ItemBase
     {
         public string Name { get; set; }
 
@@ -11,8 +11,10 @@ namespace IMarket.Models.Models
 
         public DateTime SellingTime { get; set; }
 
-        public int Weight { get; set; }
+        public double Weight { get; set; }
 
-        public ItemType Type { get; set; }
+        public string Color { get; set; }
+
+        public string Description { get; set; }
     }
 }
