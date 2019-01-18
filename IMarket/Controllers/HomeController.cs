@@ -17,12 +17,7 @@ namespace IMarket.Controllers
             _stockService = stockService;
         }
 
-        public ActionResult Index()
-        {
-            return View();
-        }
-
-        public ActionResult GetStock()
+        public ActionResult index()
         {
             var model = new StockViewModel
             {
