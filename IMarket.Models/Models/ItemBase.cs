@@ -16,11 +16,5 @@ namespace IMarket.Models.Models
         public string Color { get; set; }
 
         public string Description { get; set; }
-
-        public ItemBase()
-        {
-            Description = "";
-            SellingTime = default(DateTime);
-        }
     }
 }

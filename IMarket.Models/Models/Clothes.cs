@@ -9,7 +9,7 @@ namespace IMarket.Models.Models
 {
     public class Clothes :ItemBase
     {
-        public ClothesType ClothesType { get; set; }
+        public ClothesType Type { get; set; }
 
         public string Size { get; set; }
 

@@ -9,6 +9,6 @@ namespace IMarket.Models.Models
 {
     public class SportsAccessories :ItemBase
     {
-        public SportsAccessoriesType SportsAccessoriesType { get; set; }
+        public SportsAccessoriesType Type { get; set; }
     }
 }

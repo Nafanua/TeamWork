@@ -9,7 +9,7 @@ namespace IMarket.Models.Models
 {
     public class Ball :ItemBase
     {
-        public BallType BallType { get; set; }
+        public BallType Type { get; set; }
 
         public int Diameter { get; set; }
     }
