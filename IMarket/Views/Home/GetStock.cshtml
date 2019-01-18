@@ -10,6 +10,7 @@
     <thead>
         <tr>
             <th>Name</th>
+            <th>Price</th>
             <th>Color</th>
             <th>Received Date</th>
             <th>Type</th>
@@ -18,12 +19,13 @@
     <tbody>
         @foreach (var item in Model.Items)
         {
-            <tr>
-                <td>@item.Name</td>
-                <td>@item.Color</td>
-                <td>@item.DeliveryTime</td>
-                <td>@item.Type</td>
-            </tr>
+        <tr>
+            <td>@item.Name</td>
+            <td>@item.Price</td>
+            <td>@item.Color</td>
+            <td>@item.DeliveryTime</td>
+            <td>@item.Type</td>
+        </tr>
         }
     </tbody>
 </table>
