@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 
 namespace IMarket.Models.Models
 {
-    public class Ball :ItemBase
+    public class WinterSportsModel :ItemBase
     {
-        public BallType Type { get; set; }
+        public WinterSportsType WinterSportsType { get; set; }
 
-        public int Diameter { get; set; }
+        public double Lenght { get; set; }
     }
 }

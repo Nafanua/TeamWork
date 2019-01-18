@@ -11,6 +11,8 @@ namespace IMarket.Models.Models
 
         public DateTime SellingTime { get; set; }
 
+        public ItemType Type { get; set; }
+
         public double Weight { get; set; }
 
         public string Color { get; set; }

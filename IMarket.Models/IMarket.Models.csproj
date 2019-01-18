@@ -41,15 +41,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Models\Ball.cs" />
-    <Compile Include="Models\Clothes.cs" />
+    <Compile Include="Models\BallModel.cs" />
+    <Compile Include="Models\ClothesModel.cs" />
     <Compile Include="Models\Enums\BallType.cs" />
     <Compile Include="Models\Enums\ClothesType.cs" />
+    <Compile Include="Models\Enums\ItemType.cs" />
     <Compile Include="Models\Enums\SportsAccessoriesType.cs" />
     <Compile Include="Models\Enums\WinterSportsType.cs" />
     <Compile Include="Models\ItemBase.cs" />
-    <Compile Include="Models\SportsAccessories.cs" />
-    <Compile Include="Models\WinterSports.cs" />
+    <Compile Include="Models\SportsAccessoriesModel.cs" />
+    <Compile Include="Models\WinterSportsModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

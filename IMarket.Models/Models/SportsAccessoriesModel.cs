@@ -7,12 +7,8 @@ using System.Threading.Tasks;
 
 namespace IMarket.Models.Models
 {
-    public class Clothes :ItemBase
+    public class SportsAccessoriesModel :ItemBase
     {
-        public ClothesType Type { get; set; }
-
-        public string Size { get; set; }
-
-        public string Material { get; set; }
+        public SportsAccessoriesType SportsAccessoriesType { get; set; }
     }
 }
