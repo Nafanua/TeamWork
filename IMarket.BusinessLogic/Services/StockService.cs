@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace IMarket.BusinessLogic.Services
 {
-    class StockService
+    public class StockService
     {
     }
 }

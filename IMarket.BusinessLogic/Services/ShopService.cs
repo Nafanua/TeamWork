@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace IMarket.BusinessLogic.Services
 {
-    class ShopService
+    public class ShopService
     {
+
     }
 }

@@ -10,7 +10,7 @@ namespace IMarket.DAL
     public static class Storage
     {
         public const double MaximumStorageCapacity = 1000;
-        private static IEnumerable<ItemBase> Stock = new List<ItemBase> {
+        private static readonly List<ItemBase> Stock = new List<ItemBase> {
             // Clothes
             new Clothes{ClothesType = ClothesType.TShirt, Color = "White", DeliveryTime = new  DateTime(2018, 11, 07),
                 Material = "Cotton", Name = "White TShirt",Size = "46 - 56", Weight = 0.5},
