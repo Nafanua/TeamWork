@@ -109,5 +109,10 @@ namespace IMarket.DAL
         {
             return Stock.Where(filter);
         }
+
+        public static int GetCountOfItemsInStock()
+        {
+            return Stock.Count;
+        }
     }
 }
