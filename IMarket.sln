@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IMarket.BusinessLogic", "IM
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IMarket.Models", "IMarket.Models\IMarket.Models.csproj", "{46981B99-8B51-4BA4-9CD9-FA34742D5F66}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IMarket.DAL", "IMarket.DAL\IMarket.DAL.csproj", "{01B3B2AC-B49E-481D-913B-8455A5937C1E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{46981B99-8B51-4BA4-9CD9-FA34742D5F66}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{46981B99-8B51-4BA4-9CD9-FA34742D5F66}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{46981B99-8B51-4BA4-9CD9-FA34742D5F66}.Release|Any CPU.Build.0 = Release|Any CPU
+		{01B3B2AC-B49E-481D-913B-8455A5937C1E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{01B3B2AC-B49E-481D-913B-8455A5937C1E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{01B3B2AC-B49E-481D-913B-8455A5937C1E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{01B3B2AC-B49E-481D-913B-8455A5937C1E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
