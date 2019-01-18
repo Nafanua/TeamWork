@@ -42,7 +42,7 @@ namespace IMarket.Controllers
                 ItemsOutOfStock = _stockService.GetProductsOutOfStock()
             };
 
-            return View();
+            return View(model);
         }
 
         //public ActionResult GetAllItemNotFound()
