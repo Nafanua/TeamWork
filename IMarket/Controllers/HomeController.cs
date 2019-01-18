@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using IMarket.BusinessLogic.Services.Abstracts;
+using IMarket.Models;
 
 namespace IMarket.Controllers
 {
@@ -19,6 +20,16 @@ namespace IMarket.Controllers
         public ActionResult Index()
         {
             return View();
+        }
+
+        public ActionResult GetStock()
+        {
+            var model = new StockViewModel
+            {
+                Items = _stockService.GetProducts(),
+                ItemsCount = _stockService.GetCountOfItemsInStock()
+            };
+            return View(model);
         }
 
         public ActionResult Contact()
