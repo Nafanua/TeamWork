@@ -141,5 +141,15 @@ namespace IMarket.DAL
         {
             return ItemNotFound.GetRange(0, ItemNotFound.Count);
         }
+        
+        public static void AddToItemNotFound(ItemBase item)
+        {
+            ItemNotFound.Add(item);
+        }
+
+        public static void AddToItemOutOfStock(ItemBase item)
+        {
+            ItemOutOfStock.Add(item);
+        }
     }
 }

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using IMarket.BusinessLogic.Services.Abstracts;
+using IMarket.Models;
 
 namespace IMarket.Controllers
 {
@@ -24,6 +25,26 @@ namespace IMarket.Controllers
         public ActionResult Contact()
         {
             ViewBag.Message = "Your contact page.";
+
+            return View();
+        }
+
+        public ActionResult GetAllItemsOutOfStock()
+        {
+            var model = new StockViewModel
+            {
+                ItemsOutOfStock = _stockService.GetProductsOutOfStock()
+            };
+
+            return View();
+        }
+
+        public ActionResult GetAllItemNotFound()
+        {
+            var model = new StockViewModel
+            {
+                ItemsNotFound = _stockService.GetProductsNotFound()
+            };
 
             return View();
         }
