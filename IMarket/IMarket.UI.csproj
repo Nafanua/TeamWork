@@ -193,6 +193,10 @@
       <Project>{d5a1ffdf-fed1-4167-a199-43622d468307}</Project>
       <Name>IMarket.BusinessLogic</Name>
     </ProjectReference>
+    <ProjectReference Include="..\IMarket.Models\IMarket.Models.csproj">
+      <Project>{46981b99-8b51-4ba4-9cd9-fa34742d5f66}</Project>
+      <Name>IMarket.Models</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

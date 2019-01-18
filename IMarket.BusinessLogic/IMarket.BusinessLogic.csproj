@@ -48,5 +48,11 @@
     <Folder Include="Services\" />
     <Folder Include="Utils\" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\IMarket.Models\IMarket.Models.csproj">
+      <Project>{46981b99-8b51-4ba4-9cd9-fa34742d5f66}</Project>
+      <Name>IMarket.Models</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
