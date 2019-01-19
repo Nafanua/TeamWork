@@ -42,7 +42,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+<<<<<<< HEAD
   </ItemGroup>
+=======
+    <Compile Include="Services\Abstracts\IShopService.cs" />
+    <Compile Include="Services\Abstracts\IStockService.cs" />
+    <Compile Include="Services\ShopService.cs" />
+    <Compile Include="Services\StockService.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Utils\" />
+  </ItemGroup>
+>>>>>>> parent of 7b6dcf7... add two thread in randomizer
   <ItemGroup>
     <Folder Include="Services\" />
     <Folder Include="Utils\" />
