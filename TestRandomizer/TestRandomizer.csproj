@@ -5,4 +5,10 @@
     <TargetFramework>netcoreapp2.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\IMarket.BusinessLogic\IMarket.BusinessLogic.csproj" />
+    <ProjectReference Include="..\IMarket.DAL\IMarket.DAL.csproj" />
+    <ProjectReference Include="..\IMarket.Models\IMarket.Models.csproj" />
+  </ItemGroup>
+
 </Project>

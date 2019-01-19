@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
+
 namespace IMarket.BusinessLogic.Utils
 {
     class Randomizer
@@ -12,10 +13,10 @@ namespace IMarket.BusinessLogic.Utils
 
         public void Start()
         {
-            var ThreadBuy = new Thread(Buy);
-            var ThreadSell = new Thread(Sell);
-            ThreadBuy.Start();
-            ThreadSell.Start();
+            var threadBuy = new Thread(Buy);
+            var threadSell = new Thread(Sell);
+            threadBuy.Start();
+            threadSell.Start();
 
             ConsoleKeyInfo key;
 
@@ -24,9 +25,8 @@ namespace IMarket.BusinessLogic.Utils
                 key = Console.ReadKey();
 
                 if (key.Key != ConsoleKey.Escape) continue;
-                ThreadBuy.Interrupt();
-                ThreadSell.Interrupt();
-                Console.WriteLine("Stopped");
+                threadBuy.Interrupt();
+                threadSell.Interrupt();
             } while (key.Key != ConsoleKey.Escape);
 
         }
@@ -36,7 +36,6 @@ namespace IMarket.BusinessLogic.Utils
             var rnd = new Random();
             while (true)
             {
-                Console.WriteLine("Buy");
                 Thread.Sleep(rnd.Next(15000));
             }
         }
@@ -46,7 +45,6 @@ namespace IMarket.BusinessLogic.Utils
             var rnd = new Random();
             while (true)
             {
-                Console.WriteLine("Sell");
                 Thread.Sleep(rnd.Next(15000));
             }
         }
