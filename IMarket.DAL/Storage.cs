@@ -82,9 +82,9 @@ namespace IMarket.DAL
         private static readonly List<ItemBase> ItemNotFound = new List<ItemBase>
         {
             new ClothesModel{ClothesType = ClothesType.TShirt, Color = "White", DeliveryTime = new  DateTime(2018, 11, 08),
-                Material = "Cotton", Name = "White TShirt",Size = "46 - 56", Weight = 0.5, Type = ItemType.Clothes},
+                 Name = "White TShirt",Size = "46 - 56", Weight = 0.5, Type = ItemType.Clothes},
             new ClothesModel{ClothesType = ClothesType.Pants, Color = "Blue", DeliveryTime = new  DateTime(2018, 11, 07),
-                Material = "Cotton", Name = "Blue Pants",Size = "48 - 56", Weight = 0.7, Type = ItemType.Clothes},
+                 Name = "Blue Pants",Size = "48 - 56", Weight = 0.7, Type = ItemType.Clothes},
             new SportsAccessoriesModel{SportsAccessoriesType = SportsAccessoriesType.Stopwatch, Color = "Blue", DeliveryTime = new  DateTime(2018, 11, 07),
                 Name = "Blue Stopwatch", Weight = 0.5, Type = ItemType.SportAccessories}
         };
