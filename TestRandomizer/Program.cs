@@ -56,7 +56,7 @@ namespace TestRandomizer
                                 ClothesType = closeType,
                                 Color = color,
                                 DeliveryTime = DateTime.Now,
-                                Material = "Cotton",
+                                //Material = "Cotton",
                                 Name = $"{color} {closeType}",
                                 Size = rnd.Next(36,58).ToString(),
                                 Weight = (double)rnd.Next(10)/10,
