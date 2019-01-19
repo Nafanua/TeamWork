@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace IMarket.Models.Models.Enums
 {
-    public enum ItemType
+    public enum Color
     {
-        Ball,
-        Clothes,
-        SportAccessories,
-        WinterSport
+        Red,
+        Green,
+        Yellow,
+        Cyan
     }
 }
