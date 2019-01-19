@@ -27,14 +27,7 @@
         </div>
     </div>
     <div class="container body-content">
-
-        <ul class="nav nav-tabs">
-            <li class="active">@Html.ActionLink("Stock", "Index", "Home")</li>
-            <li>@Html.ActionLink("Error supply", "GetAllItemsOutOfStock", "Home")</li>
-            <li>@Html.ActionLink("Error sale", "GetAllItemNotFound", "Home")</li>
-        </ul>
-
-        @RenderBody()
+         @RenderBody()
         <hr />
         <footer>
             <p>&copy; @DateTime.Now.Year - Created by Nafanua, Sabnock, Tojar, Beggel
