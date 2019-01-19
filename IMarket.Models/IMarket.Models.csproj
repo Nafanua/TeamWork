@@ -41,6 +41,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+<<<<<<< HEAD
+=======
+    <Compile Include="Models\BallModel.cs" />
+    <Compile Include="Models\ClothesModel.cs" />
+    <Compile Include="Models\Enums\BallType.cs" />
+    <Compile Include="Models\Enums\ClothesType.cs" />
+>>>>>>> parent of 05a108d... Complete Add Method
     <Compile Include="Models\Enums\ItemType.cs" />
     <Compile Include="Models\ItemBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
