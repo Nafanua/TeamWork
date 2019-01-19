@@ -59,7 +59,7 @@ namespace TestRandomizer
                                 //Material = "Cotton",
                                 Name = $"{color} {closeType}",
                                 Size = rnd.Next(36,58).ToString(),
-                                Weight = (double)rnd.Next(10)/10,
+                                Weight = (double)rnd.Next(1,10)/10,
                                 Type = ItemType.Clothes
                             });
                             break;
@@ -72,7 +72,7 @@ namespace TestRandomizer
                                 DeliveryTime = DateTime.Now,
                                 Name = $"{color} {ballType}",
                                 Diameter = rnd.Next(18,28),
-                                Weight = (double)rnd.Next(10) / 10,
+                                Weight = (double)rnd.Next(1,10) / 10,
                                 Type = ItemType.Ball
                             });
                             break;
@@ -84,7 +84,7 @@ namespace TestRandomizer
                                 Color = color,
                                 DeliveryTime = DateTime.Now,
                                 Name = $"{color} {sportsAccessoriesType}",
-                                Weight = (double)rnd.Next(10) / 10,
+                                Weight = (double)rnd.Next(1,10) / 10,
                                 Type = ItemType.SportAccessories
                             });
                             break;
@@ -97,7 +97,7 @@ namespace TestRandomizer
                                 DeliveryTime = DateTime.Now,
                                 Name = $"{color} {winterSportsType}",
                                 Lenght = (double)rnd.Next(10,15) / 10,
-                                Weight = (double)rnd.Next(20) / 10,
+                                Weight = (double)rnd.Next(1,20) / 10,
                                 Type = ItemType.WinterSport
                             });
                             break;
