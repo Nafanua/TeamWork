@@ -89,22 +89,19 @@ namespace TestRandomizer
                             });
                             break;
                         case 4:
-                            
+                            var winterSportsType = (WinterSportsType) rnd.Next(3);
+                            Storage.AddToStorage(new WinterSportsModel
+                            {
+                                WinterSportsType = winterSportsType,
+                                Color = color,
+                                DeliveryTime = DateTime.Now,
+                                Name = $"{color} {winterSportsType}",
+                                Lenght = (double)rnd.Next(10,15) / 10,
+                                Weight = (double)rnd.Next(20) / 10,
+                                Type = ItemType.WinterSport
+                            });
                             break;
                     }
-                    //Storage.AddToStorage(new ClothesModel
-                    //{
-                    //    ClothesType = (ClothesType)rnd.Next(3),
-                    //    Color = "Yellow",
-                    //    DeliveryTime = new DateTime(2018, 11, 07),
-                    //    Material = "Cotton",
-                    //    Name = "White TShirt",
-                    //    Size = "46 - 52",
-                    //    Weight = 0.3,
-                    //    Type = (ItemType)rnd.Next(3)
-                    //});
-
-                    Console.WriteLine("Buy");
                     Thread.Sleep(rnd.Next(15000));
                 }
             }
