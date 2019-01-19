@@ -153,5 +153,18 @@ namespace IMarket.DAL
         {
             ItemOutOfStock.Add(item);
         }
+
+        public static bool Sell(ItemBase item)
+        {
+            if (Stock.Contains(item))
+            {
+                Stock.Remove(item);
+
+                return true;
+            }
+
+            return false;
+        }
+
     }
 }
