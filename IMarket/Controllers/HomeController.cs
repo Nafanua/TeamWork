@@ -15,6 +15,11 @@ namespace IMarket.Controllers
 
         public ActionResult Index()
         {
+            return View();
+        }
+
+        public ActionResult GetStock()
+        {
             var model = new StockViewModel
             {
                 Items = _stockService.GetProducts(),
