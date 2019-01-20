@@ -54,7 +54,7 @@ namespace IMarket.BusinessLogic.Utils
                             Name = $"{color} {closeType}",
                             Size = rnd.Next(36, 58).ToString(),
                             Weight = (double)rnd.Next(1, 10) / 10,
-                            Quantity = rnd.Next(1,10),
+                            Quantity = rnd.Next(5,20),
                             Type = ItemType.Clothes
                         };
                         break;
@@ -68,7 +68,7 @@ namespace IMarket.BusinessLogic.Utils
                             Name = $"{color} {ballType}",
                             Diameter = rnd.Next(18, 28),
                             Weight = (double)rnd.Next(1, 10) / 10,
-                            Quantity = rnd.Next(1, 10),
+                            Quantity = rnd.Next(5, 20),
                             Type = ItemType.Ball
                         };
                         break;
@@ -81,7 +81,7 @@ namespace IMarket.BusinessLogic.Utils
                             DeliveryTime = DateTime.Now,
                             Name = $"{color} {sportsAccessoriesType}",
                             Weight = (double)rnd.Next(1, 10) / 10,
-                            Quantity = rnd.Next(1, 10),
+                            Quantity = rnd.Next(5, 20),
                             Type = ItemType.SportAccessories
                         };
                         break;
@@ -95,13 +95,13 @@ namespace IMarket.BusinessLogic.Utils
                             Name = $"{color} {winterSportsType}",
                             Lenght = (double)rnd.Next(10, 15) / 10,
                             Weight = (double)rnd.Next(1, 20) / 10,
-                            Quantity = rnd.Next(1, 10),
+                            Quantity = rnd.Next(5, 20),
                             Type = ItemType.WinterSport
                         };
                         break;
                 }
 
-                if (item.Weight < Storage.MaximumStorageCapacity - Storage.GetStorageCapacity())
+                if (item.Weight*item.Quantity < Storage.MaximumStorageCapacity - Storage.GetStorageCapacity())
                 {
                     Storage.AddToStorage(item);
                 }
