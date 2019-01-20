@@ -166,5 +166,9 @@ namespace IMarket.DAL
             return false;
         }
 
+        public static ItemBase GetItemByIndex(int index)
+        {
+            return Stock[index];
+        }
     }
 }
