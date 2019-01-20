@@ -101,7 +101,7 @@ namespace IMarket.BusinessLogic.Utils
                         break;
                 }
 
-                if (item.Weight*item.Quantity < Storage.MaximumStorageCapacity - Storage.GetStorageCapacity())
+                if (item != null && item.Weight*item.Quantity < Storage.MaximumStorageCapacity - Storage.GetStorageCapacity())
                 {
                     Storage.AddToStorage(item);
                 }
