@@ -9,6 +9,8 @@ namespace IMarket.DAL
     public static class Storage
     {
         public const double MaximumStorageCapacity = 1000;
+        private static object locker = new object();
+
         private static readonly List<ItemBase> Stock = new List<ItemBase>() {
                                                                              // Clothes
         new ClothesModel{ClothesType = ClothesType.TShirt, Color = "White", DeliveryTime = new DateTime(2018, 11, 07),
@@ -109,7 +111,10 @@ namespace IMarket.DAL
                 return false;
             }
 
-            Stock.Add(item);
+            lock (locker)
+            {
+                Stock.Add(item);
+            }
 
             return true;
         }
@@ -156,11 +161,14 @@ namespace IMarket.DAL
 
         public static bool Sell(ItemBase item)
         {
-            if (Stock.Contains(item))
+            lock (locker)
             {
-                Stock.Remove(item);
+                if (Stock.Contains(item))
+                {
+                    Stock.Remove(item);
 
-                return true;
+                    return true;
+                }
             }
 
             return false;
