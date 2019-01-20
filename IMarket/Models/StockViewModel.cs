@@ -15,5 +15,9 @@ namespace IMarket.Models
         public IEnumerable<ItemBase> ItemsNotFound { get; set; }
 
         public int ItemsCount { get; set; }
+
+        public double ItemsWeight { get; set; }
+
+        public double MaxWeight { get; set; }
     }
 }

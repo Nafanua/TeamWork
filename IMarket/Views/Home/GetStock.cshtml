@@ -5,12 +5,14 @@
 
 <h2>Stock</h2>
 <hr />
-<div><p>Products in stock: @Model.ItemsCount</p></div>
+<h4>Products in stock: <span class="badge badge-secondary">@Model.ItemsCount</span></h4>
+<h4>Products Weight: <span class="badge badge-secondary">@Model.ItemsWeight/@Model.MaxWeight</span></h4>
 
 <table class="table table-bordered">
     <thead>
         <tr>
             <th>Name</th>
+            <th>Quantity</th>
             <th>Color</th>
             <th>Received Date</th>
             <th>Type</th>
@@ -21,6 +23,7 @@
         {
             <tr>
                 <td>@item.Name</td>
+                <td>@item.Quantity</td>
                 <td>@item.Color</td>
                 <td>@item.DeliveryTime</td>
                 <td>@item.Type</td>

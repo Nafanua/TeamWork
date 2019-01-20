@@ -206,6 +206,10 @@
       <Project>{d5a1ffdf-fed1-4167-a199-43622d468307}</Project>
       <Name>IMarket.BusinessLogic</Name>
     </ProjectReference>
+    <ProjectReference Include="..\IMarket.DAL\IMarket.DAL.csproj">
+      <Project>{01B3B2AC-B49E-481D-913B-8455A5937C1E}</Project>
+      <Name>IMarket.DAL</Name>
+    </ProjectReference>
     <ProjectReference Include="..\IMarket.Models\IMarket.Models.csproj">
       <Project>{46981b99-8b51-4ba4-9cd9-fa34742d5f66}</Project>
       <Name>IMarket.Models</Name>

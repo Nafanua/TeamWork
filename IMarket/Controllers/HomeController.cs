@@ -1,4 +1,5 @@
 ﻿using IMarket.BusinessLogic.Services.Abstracts;
+using IMarket.DAL;
 using IMarket.Models;
 using System.Web.Mvc;
 
@@ -23,7 +24,9 @@ namespace IMarket.Controllers
             var model = new StockViewModel
             {
                 Items = _stockService.GetProducts(),
-                ItemsCount = _stockService.GetCountOfItemsInStock()
+                ItemsCount = _stockService.GetCountOfItemsInStock(),
+                ItemsWeight = Storage.GetStorageCapacity(),
+                MaxWeight = Storage.MaximumStorageCapacity
             };
             return View(model);
 
