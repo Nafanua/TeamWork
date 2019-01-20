@@ -42,7 +42,7 @@ namespace IMarket.BusinessLogic.Utils
                 var color = ((Color)rnd.Next(3)).ToString();
                 ItemBase item = default;
 
-                switch (rnd.Next(5))
+                switch (rnd.Next(1,5))
                 {
                     case 1:
                         var closeType = (ClothesType)rnd.Next(3);
@@ -112,7 +112,7 @@ namespace IMarket.BusinessLogic.Utils
             {
                 var item = Storage.GetItemByIndex(rnd.Next(Storage.GetCountOfItemsInStock()));
                 Storage.Sell(item);
-                Thread.Sleep(rnd.Next(15000));
+                Thread.Sleep(rnd.Next(30000));
             }
         }
     }

@@ -4,6 +4,7 @@ using Ninject.Web.Mvc;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
+using IMarket.BusinessLogic.Utils;
 
 namespace IMarket
 {
@@ -19,6 +20,7 @@ namespace IMarket
             NinjectModule registrations = new NinjectRegistrations();
             var kernel = new StandardKernel(registrations);
             DependencyResolver.SetResolver(new NinjectDependencyResolver(kernel));
+            Randomizer.Start();
         }
     }
 }
