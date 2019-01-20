@@ -9,10 +9,12 @@ namespace IMarket.DAL
     public static class Storage
     {
         public const double MaximumStorageCapacity = 1000;
+        private static object locker = new object();
+
         private static readonly List<ItemBase> Stock = new List<ItemBase>() {
                                                                              // Clothes
         new ClothesModel{ClothesType = ClothesType.TShirt, Color = "White", DeliveryTime = new DateTime(2018, 11, 07),
-                Name = "White TShirt",Size = "46 - 56", Weight = 0.5, Quantity = 0, Type = ItemType.Clothes
+                Name = "White TShirt",Size = "46 - 56", Weight = 0.5, Quantity = 10, Type = ItemType.Clothes
     },
             new ClothesModel{ClothesType = ClothesType.TShirt, Color = "Black", DeliveryTime = new DateTime(2018, 11, 07),
                 Name = "Black TShirt",Size = "48 - 56", Weight = 0.5, Quantity = 10, Type = ItemType.Clothes
@@ -24,7 +26,7 @@ namespace IMarket.DAL
             new ClothesModel{ClothesType = ClothesType.Pants, Color = "Black", DeliveryTime = new DateTime(2018, 11, 07),
                 Name = "Black Pants",Size = "48 - 56", Weight = 0.7, Quantity = 10, Type = ItemType.Clothes},
             new ClothesModel{ClothesType = ClothesType.Pants, Color = "Blue", DeliveryTime = new DateTime(2018, 11, 07),
-                Name = "Blue Pants",Size = "48 - 56", Weight = 0.7, Quantity = 0, Type = ItemType.Clothes},
+                Name = "Blue Pants",Size = "48 - 56", Weight = 0.7, Quantity = 10, Type = ItemType.Clothes},
             new ClothesModel{ClothesType = ClothesType.Shoes, Color = "White", DeliveryTime = new DateTime(2018, 11, 07),
                 Name = "White Shoes",Size = "37 - 45", Weight = 1.2, Quantity = 10, Type = ItemType.Clothes},
             new ClothesModel{ClothesType = ClothesType.Shoes, Color = "Red", DeliveryTime = new DateTime(2018, 11, 07),
@@ -50,7 +52,7 @@ namespace IMarket.DAL
                 Name = "White Ball",Diameter = 8, Weight = 0.2, Quantity = 10, Type = ItemType.Ball},
             // SportsAccessories
             new SportsAccessoriesModel{SportsAccessoriesType = SportsAccessoriesType.Stopwatch, Color = "Blue", DeliveryTime = new DateTime(2018, 11, 07),
-                Name = "Blue Stopwatch", Weight = 0.5, Quantity = 0, Type = ItemType.SportAccessories},
+                Name = "Blue Stopwatch", Weight = 0.5, Quantity = 10, Type = ItemType.SportAccessories},
             new SportsAccessoriesModel{SportsAccessoriesType = SportsAccessoriesType.Stopwatch, Color = "Green", DeliveryTime = new DateTime(2018, 11, 07),
                 Name = "Green Stopwatch", Weight = 0.5, Quantity = 10, Type = ItemType.SportAccessories},
             new SportsAccessoriesModel{SportsAccessoriesType = SportsAccessoriesType.BallPump, Color = "Green", DeliveryTime = new DateTime(2018, 11, 07),
@@ -109,7 +111,10 @@ namespace IMarket.DAL
                 return false;
             }
 
-            Stock.Add(item);
+            lock (locker)
+            {
+                Stock.Add(item);
+            }
 
             return true;
         }
@@ -156,15 +161,22 @@ namespace IMarket.DAL
 
         public static bool Sell(ItemBase item)
         {
-            if (Stock.Contains(item))
+            lock (locker)
             {
-                Stock.Remove(item);
+                if (Stock.Contains(item))
+                {
+                    Stock.Remove(item);
 
-                return true;
+                    return true;
+                }
             }
 
             return false;
         }
 
+        public static ItemBase GetItemByIndex(int index)
+        {
+            return Stock[index];
+        }
     }
 }
