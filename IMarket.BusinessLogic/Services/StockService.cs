@@ -17,7 +17,7 @@ namespace IMarket.BusinessLogic.Services
             return Storage.GetAll();
         }
 
-        public IEnumerable<ItemBase> GetProductsOutOfStock()
+        public IEnumerable<ItemBase> GetProductsNoPlaceInStock()
         {
             return Storage.GetAllItemsOutOfStock();
         }
