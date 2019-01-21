@@ -84,7 +84,7 @@ namespace IMarket.DAL
         private static readonly List<ItemBase> ItemNotFound = new List<ItemBase>
         {
             new ClothesModel{ClothesType = ClothesType.TShirt, Color = "White", DeliveryTime = new  DateTime(2018, 11, 08),
-                 Name = "White TShirt",Size = "46 - 56", Weight = 0.5, Quantity = 1, Type = ItemType.Clothes},
+                 Name = "ItemNotFound",Size = "46 - 56", Weight = 0.5, Quantity = 1, Type = ItemType.Clothes},
             new ClothesModel{ClothesType = ClothesType.Pants, Color = "Blue", DeliveryTime = new  DateTime(2018, 11, 07),
                  Name = "Blue Pants",Size = "48 - 56", Weight = 0.7, Quantity = 1, Type = ItemType.Clothes},
             new SportsAccessoriesModel{SportsAccessoriesType = SportsAccessoriesType.Stopwatch, Color = "Blue", DeliveryTime = new  DateTime(2018, 11, 07),
@@ -94,7 +94,7 @@ namespace IMarket.DAL
         private static readonly List<ItemBase> ItemOutOfStock = new List<ItemBase>
         {
             new WinterSportsModel{WinterSportsType = WinterSportsType.Sled, Color = "Green", DeliveryTime = new  DateTime(2018, 11, 07),
-                Name = "Green Sled",Lenght = 0.8, Weight = 2.5, Quantity = 2, Type = ItemType.WinterSport},
+                Name = "ItemOutOfStock",Lenght = 0.8, Weight = 2.5, Quantity = 2, Type = ItemType.WinterSport},
             new WinterSportsModel{WinterSportsType = WinterSportsType.Sticks, Color = "Yellow", DeliveryTime = new  DateTime(2018, 11, 07),
                 Name = "Yellow Sticks",Lenght = 1.9, Weight = 1.7, Quantity = 3, Type = ItemType.WinterSport}
         };
@@ -171,6 +171,19 @@ namespace IMarket.DAL
                 }
             }
 
+            return false;
+        }
+
+        public static bool Sell(int index, int quantity)
+        {
+            lock (locker)
+            {
+                if (Stock[index].Quantity > quantity)
+                {
+                    Stock[index].Quantity -= quantity;
+                    return true;
+                }
+            }
             return false;
         }
 
