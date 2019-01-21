@@ -47,7 +47,7 @@ namespace IMarket.BusinessLogic.Utils
                 }
                 else
                 {
-                    Storage.AddToNoPlaceInStock(item);
+                    Storage.AddToItemNotFound(item);
                 }
                 Thread.Sleep(rnd.Next(15000));
             }
