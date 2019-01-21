@@ -8,7 +8,7 @@ namespace IMarket.DAL
 {
     public static class Storage
     {
-        public const double MaximumStorageCapacity = 1000;
+        public const double MaximumStorageCapacity = 350;
         private static object locker = new object();
 
         private static readonly List<ItemBase> Stock = new List<ItemBase>() {
@@ -173,6 +173,21 @@ namespace IMarket.DAL
 
             return false;
         }
+
+        //public static bool Sell(ItemBase item, int quantity)
+        //{
+        //    lock (locker)
+        //    {
+        //        if (Stock.Contains(item))
+        //        {
+        //            var tmp = Stock.Where(x => x.Equals(item));
+
+        //            return true;
+        //        }
+        //    }
+
+        //    return false;
+        //}
 
         public static ItemBase GetItemByIndex(int index)
         {
