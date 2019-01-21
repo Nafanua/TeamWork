@@ -12,13 +12,11 @@ namespace IMarket.DAL
         private static object locker = new object();
 
         private static readonly List<ItemBase> Stock = new List<ItemBase>() {
-                                                                             // Clothes
-        new ClothesModel{ClothesType = ClothesType.TShirt, Color = "White", DeliveryTime = new DateTime(2018, 11, 07),
-                Name = "White TShirt",Size = "46 - 56", Weight = 0.5, Quantity = 10, Type = ItemType.Clothes
-    },
+            // Clothes
+            new ClothesModel{ClothesType = ClothesType.TShirt, Color = "White", DeliveryTime = new DateTime(2018, 11, 07),
+                Name = "White TShirt",Size = "46 - 56", Weight = 0.5, Quantity = 10, Type = ItemType.Clothes},
             new ClothesModel{ClothesType = ClothesType.TShirt, Color = "Black", DeliveryTime = new DateTime(2018, 11, 07),
-                Name = "Black TShirt",Size = "48 - 56", Weight = 0.5, Quantity = 10, Type = ItemType.Clothes
-},
+                Name = "Black TShirt",Size = "48 - 56", Weight = 0.5, Quantity = 10, Type = ItemType.Clothes},
             new ClothesModel{ClothesType = ClothesType.TShirt, Color = "Blue", DeliveryTime = new DateTime(2018, 11, 07),
                 Name = "Blue TShirt",Size = "48 - 56", Weight = 0.5, Quantity = 10, Type = ItemType.Clothes},
             new ClothesModel{ClothesType = ClothesType.Pants, Color = "White", DeliveryTime = new DateTime(2018, 11, 07),
@@ -91,7 +89,7 @@ namespace IMarket.DAL
                 Name = "Blue Stopwatch", Weight = 0.5, Quantity = 1, Type = ItemType.SportAccessories}
         };
 
-        private static readonly List<ItemBase> ItemOutOfStock = new List<ItemBase>
+        private static readonly List<ItemBase> ItemNoPlaceInStock = new List<ItemBase>
         {
             new WinterSportsModel{WinterSportsType = WinterSportsType.Sled, Color = "Green", DeliveryTime = new  DateTime(2018, 11, 07),
                 Name = "ItemOutOfStock",Lenght = 0.8, Weight = 2.5, Quantity = 2, Type = ItemType.WinterSport},
@@ -141,14 +139,14 @@ namespace IMarket.DAL
 
         public static IEnumerable<ItemBase> GetAllItemsOutOfStock()
         {
-            return ItemOutOfStock.GetRange(0, ItemOutOfStock.Count);
+            return ItemNoPlaceInStock.GetRange(0, ItemNoPlaceInStock.Count);
         }
 
         public static IEnumerable<ItemBase> GetAllItemNotFound()
         {
             return ItemNotFound.GetRange(0, ItemNotFound.Count);
         }
-        
+
         public static void AddToItemNotFound(ItemBase item)
         {
             ItemNotFound.Add(item);
@@ -156,7 +154,7 @@ namespace IMarket.DAL
 
         public static void AddToItemOutOfStock(ItemBase item)
         {
-            ItemOutOfStock.Add(item);
+            ItemNoPlaceInStock.Add(item);
         }
 
         public static bool Sell(ItemBase item)

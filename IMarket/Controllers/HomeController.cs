@@ -43,7 +43,7 @@ namespace IMarket.Controllers
         {
             var model = new StockViewModel
             {
-                ItemsOutOfStock = _stockService.GetProductsOutOfStock()
+                ItemsOutOfStock = _stockService.GetProductsNoPlaceInStock()
             };
 
             return View(model);

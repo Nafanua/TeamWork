@@ -11,7 +11,7 @@ namespace IMarket.BusinessLogic.Services.Abstracts
     {
         int GetCountOfItemsInStock();
         IEnumerable<ItemBase> GetProducts();
-        IEnumerable<ItemBase> GetProductsOutOfStock();
+        IEnumerable<ItemBase> GetProductsNoPlaceInStock();
         IEnumerable<ItemBase> GetProductsNotFound();
     }
 }
