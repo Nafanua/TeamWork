@@ -47,7 +47,7 @@ namespace IMarket.BusinessLogic.Utils
                 }
                 else
                 {
-                    Storage.AddToItemNotFound(item);
+                    Storage.AddToNoPlaceInStock(item);
                 }
                 Thread.Sleep(rnd.Next(15000));
             }
@@ -66,7 +66,7 @@ namespace IMarket.BusinessLogic.Utils
                 if (RndQuatity > item.Quantity)
                 {
                     item.Quantity = RndQuatity - item.Quantity;
-                    Storage.AddToItemOutOfStock(item);
+                    Storage.AddToItemNotFound(item);
                     Storage.Sell(item);
                 }
                 else if (RndQuatity < item.Quantity)

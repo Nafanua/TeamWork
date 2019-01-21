@@ -92,7 +92,7 @@ namespace IMarket.DAL
         private static readonly List<ItemBase> ItemNoPlaceInStock = new List<ItemBase>
         {
             new WinterSportsModel{WinterSportsType = WinterSportsType.Sled, Color = "Green", DeliveryTime = new  DateTime(2018, 11, 07),
-                Name = "ItemOutOfStock",Lenght = 0.8, Weight = 2.5, Quantity = 2, Type = ItemType.WinterSport},
+                Name = "ItemNoPlaceInStock",Lenght = 0.8, Weight = 2.5, Quantity = 2, Type = ItemType.WinterSport},
             new WinterSportsModel{WinterSportsType = WinterSportsType.Sticks, Color = "Yellow", DeliveryTime = new  DateTime(2018, 11, 07),
                 Name = "Yellow Sticks",Lenght = 1.9, Weight = 1.7, Quantity = 3, Type = ItemType.WinterSport}
         };
@@ -152,7 +152,7 @@ namespace IMarket.DAL
             ItemNotFound.Add(item);
         }
 
-        public static void AddToItemOutOfStock(ItemBase item)
+        public static void AddToNoPlaceInStock(ItemBase item)
         {
             ItemNoPlaceInStock.Add(item);
         }
