@@ -58,11 +58,23 @@ namespace IMarket.BusinessLogic.Utils
             var rnd = new Random();
             while (true)
             {
-                var item = GenerateProduct();
-                if (!Storage.Sell(item))
+                var index = rnd.Next(Storage.GetCountOfItemsInStock());
+                var item = Storage.GetItemByIndex(index);
+              //  var itemRnd = item;
+
+                var RndQuatity = rnd.Next(1, 30);
+                if (RndQuatity > item.Quantity)
                 {
+                    item.Quantity = RndQuatity - item.Quantity;
                     Storage.AddToItemOutOfStock(item);
+                    Storage.Sell(item);
                 }
+                else if (RndQuatity < item.Quantity)
+                {
+                    Storage.Sell(index, RndQuatity);
+                }
+                else Storage.Sell(item);
+
                 Thread.Sleep(rnd.Next(30000));
             }
         }
