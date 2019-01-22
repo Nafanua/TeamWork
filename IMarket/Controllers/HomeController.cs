@@ -41,7 +41,7 @@ namespace IMarket.Controllers
 
         public ActionResult GetAllItemsOutOfStock()
         {
-            var model = new StockViewModel
+            var model = new ProductsNoPlaceInStockViewModel
             {
                 ItemsOutOfStock = _stockService.GetProductsNoPlaceInStock()
             };
@@ -51,7 +51,7 @@ namespace IMarket.Controllers
 
         public ActionResult GetAllItemNotFound()
         {
-            var model = new StockViewModel
+            var model = new ProductsNotFoundViewModel
             {
                 ItemsNotFound = _stockService.GetProductsNotFound()
             };
