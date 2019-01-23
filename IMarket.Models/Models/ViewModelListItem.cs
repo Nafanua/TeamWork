@@ -12,7 +12,7 @@ namespace IMarket.Models.Models
 
         public DateTime DeliveryTime { get; set; }
 
-        public ItemType Type { get; set; }
+        public GeneralType Type { get; set; }
 
         public int Count { get; set; }
     }
