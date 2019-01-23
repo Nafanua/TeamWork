@@ -1,6 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using IMarket.Models.Models.Enums;
+﻿using IMarket.Models.Models.Enums;
+using System;
 
 namespace IMarket.Models.Models
 {
