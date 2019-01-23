@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using IMarket.Models.Models.Enums;
 
 namespace IMarket.Models.Models
 {
@@ -6,6 +8,12 @@ namespace IMarket.Models.Models
     {
         public string Name { get; set; }
 
-        public IEnumerable<ItemBase> ItemList { get; set; }
+        public Color Color { get; set; }
+
+        public DateTime DeliveryTime { get; set; }
+
+        public ItemType Type { get; set; }
+
+        public int Count { get; set; }
     }
 }

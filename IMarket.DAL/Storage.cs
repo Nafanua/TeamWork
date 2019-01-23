@@ -186,7 +186,7 @@ namespace IMarket.DAL
 
         public static IEnumerable<ViewModelListItem> GetGroupInStorage()
         { 
-            return Stock.GroupBy(x => x.Name, (a,b) => new ViewModelListItem {Name = a, ItemList = b});
+            return Stock.GroupBy(x => x.Name, (a,b) => new ViewModelListItem {Name = a, Color = b.First().Color, DeliveryTime = b.First().DeliveryTime, Type = b.First().Type, Count = b.Count()});
         }
     }
 }
