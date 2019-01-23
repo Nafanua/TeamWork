@@ -15,5 +15,7 @@ namespace IMarket.Models.Models
         public string Type { get; set; }
 
         public int Count { get; set; }
+
+        public double Weight { get; set; }
     }
 }

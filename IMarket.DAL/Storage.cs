@@ -91,7 +91,7 @@ namespace IMarket.DAL
                 Name = "ItemNoPlaceInStock",Lenght = 0.8, Quantity = 2, Type = GeneralType.WinterSport}
         };
 
-        public static double GetStorageCapacity()
+        private static double GetStorageCapacity()
         {
             return Stock.Sum(i => (i.Weight * i.Quantity));
         }
@@ -186,7 +186,7 @@ namespace IMarket.DAL
 
         public static IEnumerable<ViewModelListItem> GetGroupInStorage()
         { 
-            return Stock.GroupBy(x => x.Name, (a,b) => new ViewModelListItem {Name = a, Color = b.First().Color.ToString(), DeliveryTime = b.First().DeliveryTime.ToString(@"MM\/dd\/yyyy HH:mm"), Type = b.First().Type.ToString(), Count = b.Count()});
+            return Stock.GroupBy(x => x.Name, (a,b) => new ViewModelListItem {Name = a, Color = b.First().Color.ToString(), DeliveryTime = b.First().DeliveryTime.ToString(@"MM\/dd\/yyyy HH:mm"), Type = b.First().Type.ToString(), Count = b.Count(), Weight = b.Sum(i => i.Weight * b.Count())});
         }
     }
 }

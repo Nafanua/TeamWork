@@ -1,5 +1,5 @@
-﻿@using IMarket.Models.Models.Enums
-@model IMarket.Models.StockViewModel
+﻿@using IMarket.DAL
+
 @{
     ViewBag.Title = "Stock";
     Layout = null;
@@ -7,8 +7,8 @@
 
 <h2>Stock</h2>
 <hr />
-<h4>Products in stock: <span class="badge badge-secondary">@Model.ItemsCount</span></h4>
-<h4>Products Weight: <span class="badge badge-secondary">@Model.ItemsWeight/@Model.MaxWeight</span></h4>
+<h4>Products in stock: <span class="badge badge-secondary" id="stockCount"></span></h4>
+<h4>Products Weight: <span class="badge badge-secondary" id="weight"></span></h4>
 
 <table class="table table-bordered" id="stockTable">
     <thead>
@@ -27,7 +27,7 @@
 
 <script>
     $(document).ready(function() {
-        const delay = 3000;
+        const delay = 15000;
 
         setTable();
 
@@ -44,9 +44,15 @@
 
             $("#tableBody tr").remove();
 
+            document.getElementById("stockCount").innerHTML = list.length;
+
+            let weight = 0;
+
             const tableRef = document.getElementById('stockTable').getElementsByTagName('tbody')[0];
 
             for (let i = 0; i < list.length; i++) {
+
+                weight += list[i].Weight;
 
                 const newRow = tableRef.insertRow(tableRef.rows.length);
 
@@ -68,6 +74,8 @@
                 newCell3.appendChild(deliveryTime);
                 newCell4.appendChild(type);
             }
+
+            document.getElementById("weight").innerHTML = weight.toFixed(2) + " / " + "@Storage.MaximumStorageCapacity";
         });
     }
 
