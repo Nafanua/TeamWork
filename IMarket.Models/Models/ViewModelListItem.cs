@@ -10,8 +10,6 @@ namespace IMarket.Models.Models
 
         public Color Color { get; set; }
 
-        public DateTime DeliveryTime { get; set; }
-
         public GeneralType Type { get; set; }
 
         public int Count { get; set; }
