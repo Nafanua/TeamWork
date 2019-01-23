@@ -1,6 +1,6 @@
+using IMarket.Models.Models;
 using IMarket.Models.Models.Enums;
 using System;
-using IMarket.Models.Models;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -179,29 +179,14 @@ namespace IMarket.DAL
             return false;
         }
 
-        //public static bool Sell(ItemBase item, int quantity)
-        //{
-        //    lock (locker)
-        //    {
-        //        if (Stock.Contains(item))
-        //        {
-        //            var tmp = Stock.Where(x => x.Equals(item));
-
-        //            return true;
-        //        }
-        //    }
-
-        //    return false;
-        //}
-
         public static ItemBase GetItemByIndex(int index)
         {
             return Stock[index];
         }
 
-        public static IEnumerable<IGrouping<string, ItemBase>> GetGroupInStorage()
-        {
-            return Stock.GroupBy(x => x.Name);
+        public static IEnumerable<ViewModelListItem> GetGroupInStorage()
+        { 
+            return Stock.GroupBy(x => x.Name, (a,b) => new ViewModelListItem {Name = a, ItemList = b});
         }
     }
 }

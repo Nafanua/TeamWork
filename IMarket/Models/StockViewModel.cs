@@ -1,14 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Collections.Generic;
 using IMarket.Models.Models;
 
 namespace IMarket.Models
 {
     public class StockViewModel
     {
-        public IEnumerable<IGrouping<string, ItemBase>> Items { get; set; }
+        public IEnumerable<ViewModelListItem> Items { get; set; }
 
         public int ItemsCount { get; set; }
 
