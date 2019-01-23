@@ -1,6 +1,6 @@
+using IMarket.Models.Models;
 using IMarket.Models.Models.Enums;
 using System;
-using IMarket.Models.Models;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -182,6 +182,11 @@ namespace IMarket.DAL
         public static ItemBase GetItemByIndex(int index)
         {
             return Stock[index];
+        }
+
+        public static IEnumerable<ViewModelListItem> GetGroupInStorage()
+        { 
+            return Stock.GroupBy(x => x.Name, (a,b) => new ViewModelListItem {Name = a, Color = b.First().Color, DeliveryTime = b.First().DeliveryTime, Type = b.First().Type, Count = b.Count()});
         }
     }
 }

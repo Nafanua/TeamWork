@@ -48,6 +48,7 @@
     <Compile Include="Models\Enums\GeneralType.cs" />
     <Compile Include="Models\ItemBase.cs" />
     <Compile Include="Models\SportsAccessoriesModel.cs" />
+    <Compile Include="Models\ViewModelListItem.cs" />
     <Compile Include="Models\WeightBalance.cs" />
     <Compile Include="Models\WinterSportsModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
