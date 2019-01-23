@@ -1,4 +1,5 @@
-﻿@model IMarket.Models.StockViewModel
+﻿@using IMarket.Models.Models.Enums
+@model IMarket.Models.StockViewModel
 @{
     ViewBag.Title = "Stock";
     Layout = null;
@@ -9,7 +10,7 @@
 <h4>Products in stock: <span class="badge badge-secondary">@Model.ItemsCount</span></h4>
 <h4>Products Weight: <span class="badge badge-secondary">@Model.ItemsWeight/@Model.MaxWeight</span></h4>
 
-<table class="table table-bordered">
+<table class="table table-bordered" id="stockTable">
     <thead>
         <tr>
             <th>Name</th>
@@ -19,17 +20,57 @@
             <th>Type</th>
         </tr>
     </thead>
-    <tbody>
-        @foreach (var item in Model.Items)
-        {
-            <tr>
-                <td>@item.Name</td>
-                <td>@item.Count</td>
-                <td>@item.Color</td>
-                <td>@item.DeliveryTime</td>
-                <td>@item.Type</td>
-            </tr>
-        }
+    <tbody id="tableBody">
+
     </tbody>
 </table>
+
+<script>
+    $(document).ready(function() {
+        const delay = 3000;
+
+        setTable();
+
+        setInterval(function () {setTable()}, delay);
+    });
+
+    function setTable() {
+
+        $.getJSON('@Url.Action("GetStockJson", "Home")').done(function(data) {
+            const { list } = JSON.parse(data).reduce((acc, cur) => {
+                    acc.list.push(cur);
+                    return acc;
+            }, { list: [] });
+
+            $("#tableBody tr").remove();
+
+            const tableRef = document.getElementById('stockTable').getElementsByTagName('tbody')[0];
+
+            for (let i = 0; i < list.length; i++) {
+
+                const newRow = tableRef.insertRow(tableRef.rows.length);
+
+                const newCell0 = newRow.insertCell(0);
+                const newCell1 = newRow.insertCell(1);
+                const newCell2 = newRow.insertCell(2);
+                const newCell3 = newRow.insertCell(3);
+                const newCell4 = newRow.insertCell(4);
+
+                const name = document.createTextNode(list[i].Name);
+                const count = document.createTextNode(list[i].Count);
+                const color = document.createTextNode(list[i].Color);
+                const deliveryTime = document.createTextNode(list[i].DeliveryTime);
+                const type = document.createTextNode(list[i].Type);
+
+                newCell0.appendChild(name);
+                newCell1.appendChild(count);
+                newCell2.appendChild(color);
+                newCell3.appendChild(deliveryTime);
+                newCell4.appendChild(type);
+            }
+        });
+    }
+
+</script>
+
 
