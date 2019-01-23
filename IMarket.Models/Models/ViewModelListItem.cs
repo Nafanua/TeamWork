@@ -8,11 +8,11 @@ namespace IMarket.Models.Models
     {
         public string Name { get; set; }
 
-        public Color Color { get; set; }
+        public string Color { get; set; }
 
-        public DateTime DeliveryTime { get; set; }
+        public string DeliveryTime { get; set; }
 
-        public GeneralType Type { get; set; }
+        public string Type { get; set; }
 
         public int Count { get; set; }
     }

@@ -4,6 +4,7 @@ using IMarket.DAL;
 using IMarket.Models.Models;
 using System.Web.Mvc;
 using IMarket.Models;
+using Newtonsoft.Json;
 
 namespace IMarket.Controllers
 {
@@ -59,6 +60,16 @@ namespace IMarket.Controllers
             };
 
             return View(model);
+        }
+
+        [HttpGet]
+        public JsonResult GetStockJson()
+        {
+            var items = Storage.GetGroupInStorage();
+
+            var result = JsonConvert.SerializeObject(items);
+
+            return Json(result, JsonRequestBehavior.AllowGet);
         }
     }
 }
