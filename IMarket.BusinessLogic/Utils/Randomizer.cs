@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 using IMarket.DAL;
 using IMarket.Models.Models;
 using IMarket.Models.Models.Enums;
@@ -19,18 +15,6 @@ namespace IMarket.BusinessLogic.Utils
             var threadSell = new Thread(Sell);
             threadBuy.Start();
             threadSell.Start();
-
-            //ConsoleKeyInfo key;
-
-            //do
-            //{
-            //    key = Console.ReadKey();
-
-            //    if (key.Key != ConsoleKey.Escape) continue;
-            //    threadBuy.Interrupt();
-            //    threadSell.Interrupt();
-            //} while (key.Key != ConsoleKey.Escape);
-
         }
 
         private static void Buy()
@@ -88,58 +72,54 @@ namespace IMarket.BusinessLogic.Utils
             switch (rnd.Next(1, 5))
             {
                 case 1:
-                    var closeType = (ClothesType)rnd.Next(3);
-                    item = new ClothesModel
+                    var clothesType = (ConcreteType)rnd.Next(4,7);
+                    item = new ClothesModel(clothesType)
                     {
-                        ClothesType = closeType,
+                        ConcreteType = clothesType,
                         Color = color,
                         DeliveryTime = DateTime.Now,
-                        Name = $"{color} {closeType}",
+                        Name = $"{color} {clothesType}",
                         Size = rnd.Next(36, 58).ToString(),
-                        Weight = (double)rnd.Next(1, 10) / 10,
                         Quantity = rnd.Next(5, 20),
-                        Type = ItemType.Clothes
+                        Type = GeneralType.Clothes
                     };
                     break;
                 case 2:
-                    var ballType = (BallType)rnd.Next(4);
-                    item = new BallModel
+                    var ballType = (ConcreteType)rnd.Next(0,4);
+                    item = new BallModel(ballType)
                     {
-                        BallType = ballType,
+                        ConcreteType = ballType,
                         Color = color,
                         DeliveryTime = DateTime.Now,
                         Name = $"{color} {ballType}",
                         Diameter = rnd.Next(18, 28),
-                        Weight = (double)rnd.Next(1, 10) / 10,
                         Quantity = rnd.Next(5, 20),
-                        Type = ItemType.Ball
+                        Type = GeneralType.Ball
                     };
                     break;
                 case 3:
-                    var sportsAccessoriesType = (SportsAccessoriesType)rnd.Next(3);
-                    item = new SportsAccessoriesModel
+                    var sportsAccessoriesType = (ConcreteType)rnd.Next(7,11);
+                    item = new SportsAccessoriesModel(sportsAccessoriesType)
                     {
-                        SportsAccessoriesType = sportsAccessoriesType,
+                        ConcreteType = sportsAccessoriesType,
                         Color = color,
                         DeliveryTime = DateTime.Now,
                         Name = $"{color} {sportsAccessoriesType}",
-                        Weight = (double)rnd.Next(1, 10) / 10,
                         Quantity = rnd.Next(5, 20),
-                        Type = ItemType.SportAccessories
+                        Type = GeneralType.SportAccessories
                     };
                     break;
                 case 4:
-                    var winterSportsType = (WinterSportsType)rnd.Next(3);
-                    item = new WinterSportsModel
+                    var winterSportsType = (ConcreteType)rnd.Next(10,13);
+                    item = new WinterSportsModel(winterSportsType)
                     {
-                        WinterSportsType = winterSportsType,
+                        ConcreteType = winterSportsType,
                         Color = color,
                         DeliveryTime = DateTime.Now,
                         Name = $"{color} {winterSportsType}",
                         Lenght = (double)rnd.Next(10, 15) / 10,
-                        Weight = (double)rnd.Next(1, 20) / 10,
                         Quantity = rnd.Next(5, 20),
-                        Type = ItemType.WinterSport
+                        Type = GeneralType.WinterSport
                     };
                     break;
             }

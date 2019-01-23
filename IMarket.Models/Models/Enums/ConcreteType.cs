@@ -6,13 +6,20 @@ using System.Threading.Tasks;
 
 namespace IMarket.Models.Models.Enums
 {
-    public enum WinterSportsType
+    public enum ConcreteType
     {
-        // Лыжи
+        SoccerBall,
+        VolleyballBall,
+        BasketballBall,
+        BaseballBall,
+        TShirt,
+        Pants,
+        Shoes,
+        Stopwatch,
+        BallPump,
+        Whistle,
         Skiing,
-        // Санки
         Sled,
-        // Клюшки
         Sticks
     }
 }
