@@ -19,8 +19,6 @@ namespace IMarket.Models.Models
 
         public Color Color { get; set; }
 
-        public string Description { get; set; }
-
         public ConcreteType ConcreteType { get; set; }
 
         public ItemBase(ConcreteType concreteType)
