@@ -16,12 +16,10 @@
             <th>Name</th>
             <th>Quantity</th>
             <th>Color</th>
-            <th>Received Date</th>
             <th>Type</th>
         </tr>
     </thead>
     <tbody id="tableBody">
-
     </tbody>
 </table>
 
@@ -60,19 +58,16 @@
                 const newCell1 = newRow.insertCell(1);
                 const newCell2 = newRow.insertCell(2);
                 const newCell3 = newRow.insertCell(3);
-                const newCell4 = newRow.insertCell(4);
 
                 const name = document.createTextNode(list[i].Name);
                 const count = document.createTextNode(list[i].Count);
                 const color = document.createTextNode(list[i].Color);
-                const deliveryTime = document.createTextNode(list[i].DeliveryTime);
                 const type = document.createTextNode(list[i].Type);
 
                 newCell0.appendChild(name);
                 newCell1.appendChild(count);
                 newCell2.appendChild(color);
-                newCell3.appendChild(deliveryTime);
-                newCell4.appendChild(type);
+                newCell3.appendChild(type);
             }
 
             document.getElementById("weight").innerHTML = weight.toFixed(2) + " / " + "@Storage.MaximumStorageCapacity";
