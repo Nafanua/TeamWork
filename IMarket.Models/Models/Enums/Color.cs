@@ -11,6 +11,9 @@ namespace IMarket.Models.Models.Enums
         Red,
         Green,
         Yellow,
-        Cyan
+        Cyan,
+        White,
+        Black,
+        Blue
     }
 }
