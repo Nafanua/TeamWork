@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace IMarket.Models.Models.Enums
 {
-    public enum ItemType
+    public enum GeneralType
     {
         Ball,
         Clothes,
