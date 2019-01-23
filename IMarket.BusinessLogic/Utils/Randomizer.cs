@@ -82,7 +82,7 @@ namespace IMarket.BusinessLogic.Utils
         private static ItemBase GenerateProduct()
         {
             var rnd = new Random();
-            var color = ((Color)rnd.Next(3)).ToString();
+            var color = ((Color)rnd.Next(3));
             ItemBase item = default;
 
             switch (rnd.Next(1, 5))
