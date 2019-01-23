@@ -166,19 +166,6 @@ namespace IMarket.DAL
             return false;
         }
 
-        //public static bool Sell(int index, int quantity)
-        //{
-        //    lock (locker)
-        //    {
-        //        if (Stock[index].Quantity > quantity)
-        //        {
-        //            Stock[index].Quantity -= quantity;
-        //            return true;
-        //        }
-        //    }
-        //    return false;
-        //}
-
         public static ItemBase GetItemByIndex(int index)
         {
             return Stock[index];
