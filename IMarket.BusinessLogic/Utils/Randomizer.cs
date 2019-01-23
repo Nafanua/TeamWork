@@ -19,6 +19,8 @@ namespace IMarket.BusinessLogic.Utils
 
         private static void Buy()
         {
+            Thread.Sleep(5000);
+
             var rnd = new Random();
 
             while (true)
@@ -39,6 +41,8 @@ namespace IMarket.BusinessLogic.Utils
 
         private static void Sell()
         {
+            Thread.Sleep(5000);
+
             var rnd = new Random();
             while (true)
             {
