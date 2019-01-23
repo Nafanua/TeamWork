@@ -184,10 +184,11 @@ namespace IMarket.DAL
             return Stock[index];
         }
 
-        public static IEnumerable<ViewModelListItem> GetGroupInStorage()
+        public static IEnumerable<ViewModelListItem> GetByGroupFromStorage()
 
         { 
-            return Stock.GroupBy(x => x.Name, (a,b) => new ViewModelListItem {Name = a, Color = b.First().Color.ToString(), Type = b.First().ConcreteType.ToString(), Count = b.Count(), Weight = b.Sum(i => i.Weight * b.Count())});
+            return Stock.GroupBy(x => x.Name, (a,b) => new ViewModelListItem {Name = a, Color = b.First().Color.ToString(), Type = b.First().ConcreteType.ToString(), Count = b.Count(),
+               Weight = b.Sum(i => i.Weight * b.Count())});
         }
     }
 }

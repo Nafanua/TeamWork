@@ -57,7 +57,7 @@ namespace IMarket.Controllers
         [HttpGet]
         public JsonResult GetStockJson()
         {
-            var items = Storage.GetGroupInStorage();
+            var items = Storage.GetByGroupFromStorage();
 
             var result = JsonConvert.SerializeObject(items);
 
