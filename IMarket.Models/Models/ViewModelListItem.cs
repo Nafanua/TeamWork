@@ -12,7 +12,7 @@ namespace IMarket.Models.Models
 
         public string DeliveryTime { get; set; }
 
-        public ConcreteType Type { get; set; }
+        public string Type { get; set; }
 
         public int Count { get; set; }
     }
