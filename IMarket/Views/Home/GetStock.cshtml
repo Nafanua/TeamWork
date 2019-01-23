@@ -22,11 +22,15 @@
         @foreach (var item in Model.Items)
         {
             <tr>
-                <td>@item.Name</td>
-                <td>@item.Quantity</td>
-                <td>@item.Color</td>
-                <td>@item.DeliveryTime</td>
-                <td>@item.Type</td>
+                <td>@item.Key</td>
+                <td>@item.Count()</td>
+                @foreach (var i in item)
+                {
+                    <td>@i.Color</td>
+                    <td>@i.DeliveryTime</td>
+                    <td>@i.Type</td>
+                    break;
+                }
             </tr>
         }
     </tbody>

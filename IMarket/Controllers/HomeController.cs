@@ -23,7 +23,8 @@ namespace IMarket.Controllers
         {
             var model = new StockViewModel
             {
-                Items = _stockService.GetProducts(),
+                Items = Storage.GetGroupInStorage(),
+                //Items = _stockService.GetProducts(),
                 ItemsCount = _stockService.GetCountOfItemsInStock(),
                 ItemsWeight = Storage.GetStorageCapacity(),
                 MaxWeight = Storage.MaximumStorageCapacity

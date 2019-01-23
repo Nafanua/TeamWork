@@ -8,7 +8,7 @@ namespace IMarket.Models
 {
     public class StockViewModel
     {
-        public IEnumerable<ItemBase> Items { get; set; }
+        public IEnumerable<IGrouping<string, ItemBase>> Items { get; set; }
 
         public int ItemsCount { get; set; }
 

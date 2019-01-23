@@ -198,5 +198,10 @@ namespace IMarket.DAL
         {
             return Stock[index];
         }
+
+        public static IEnumerable<IGrouping<string, ItemBase>> GetGroupInStorage()
+        {
+            return Stock.GroupBy(x => x.Name);
+        }
     }
 }
