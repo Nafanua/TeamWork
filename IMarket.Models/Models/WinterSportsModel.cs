@@ -9,8 +9,11 @@ namespace IMarket.Models.Models
 {
     public class WinterSportsModel :ItemBase
     {
-        public WinterSportsType WinterSportsType { get; set; }
-
         public double Lenght { get; set; }
+
+        public WinterSportsModel(ConcreteType concreteType)
+            : base(concreteType)
+        {
+        }
     }
 }

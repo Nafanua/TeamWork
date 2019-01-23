@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using IMarket.Models.Models.Enums;
 
 namespace IMarket.Models.Models
@@ -11,14 +12,26 @@ namespace IMarket.Models.Models
 
         public DateTime SellingTime { get; set; }
 
-        public ItemType Type { get; set; }
+        public GeneralType Type { get; set; }
 
-        public double Weight { get; set; }
+        public double Weight { get; private set; }
 
-        public int Quantity { get; set; }
+        public double Quantity { get; set; }
 
         public Color Color { get; set; }
 
         public string Description { get; set; }
+
+        public ConcreteType ConcreteType { get; set; }
+
+        public ItemBase(ConcreteType concreteType)
+        {
+            WeightInit(concreteType);
+        }
+
+        private void WeightInit(ConcreteType concreteType)
+        {
+            Weight = WeightBalance.Weight[concreteType];
+        }
     }
 }
