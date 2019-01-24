@@ -27,7 +27,7 @@ namespace IMarket.BusinessLogic.Utils
             {
                 var item = GenerateProduct();
 
-                if (item != null && item.Weight * item.Quantity < Storage.MaximumStorageCapacity - Storage.GetStorageCapacity())
+                if (item != null && item.Weight < Storage.MaximumStorageCapacity - Storage.GetStorageCapacity())
                 {
                     Storage.AddToStorage(item);
                 }
@@ -50,18 +50,7 @@ namespace IMarket.BusinessLogic.Utils
                 var item = Storage.GetItemByIndex(index);
               //  var itemRnd = item;
 
-                var RndQuatity = rnd.Next(1, 30);
-                if (RndQuatity > item.Quantity)
-                {
-                    item.Quantity = RndQuatity - item.Quantity;
-                    Storage.AddToItemNotFound(item);
-                    Storage.Sell(item);
-                }
-                else if (RndQuatity < item.Quantity)
-                {
-                    Storage.Sell(index, RndQuatity);
-                }
-                else Storage.Sell(item);
+                Storage.Sell(item);
 
                 Thread.Sleep(rnd.Next(30000));
             }
@@ -84,7 +73,6 @@ namespace IMarket.BusinessLogic.Utils
                         DeliveryTime = DateTime.Now,
                         Name = $"{color} {clothesType}",
                         Size = rnd.Next(36, 58).ToString(),
-                        Quantity = rnd.Next(5, 20),
                         Type = GeneralType.Clothes
                     };
                     break;
@@ -97,7 +85,6 @@ namespace IMarket.BusinessLogic.Utils
                         DeliveryTime = DateTime.Now,
                         Name = $"{color} {ballType}",
                         Diameter = rnd.Next(18, 28),
-                        Quantity = rnd.Next(5, 20),
                         Type = GeneralType.Ball
                     };
                     break;
@@ -109,7 +96,6 @@ namespace IMarket.BusinessLogic.Utils
                         Color = color,
                         DeliveryTime = DateTime.Now,
                         Name = $"{color} {sportsAccessoriesType}",
-                        Quantity = rnd.Next(5, 20),
                         Type = GeneralType.SportAccessories
                     };
                     break;
@@ -122,7 +108,6 @@ namespace IMarket.BusinessLogic.Utils
                         DeliveryTime = DateTime.Now,
                         Name = $"{color} {winterSportsType}",
                         Lenght = (double)rnd.Next(10, 15) / 10,
-                        Quantity = rnd.Next(5, 20),
                         Type = GeneralType.WinterSport
                     };
                     break;

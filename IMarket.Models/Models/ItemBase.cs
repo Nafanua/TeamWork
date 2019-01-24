@@ -15,8 +15,6 @@ namespace IMarket.Models.Models
 
         public double Weight { get; private set; }
 
-        public double Quantity { get; set; }
-
         public Color Color { get; set; }
 
         public ConcreteType ConcreteType { get; set; }
