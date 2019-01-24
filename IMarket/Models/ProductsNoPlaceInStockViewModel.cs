@@ -8,6 +8,6 @@ namespace IMarket.Models
 {
     public class ProductsNoPlaceInStockViewModel
     {
-        public IEnumerable<ItemBase> ItemsOutOfStock { get; set; }
+        public IEnumerable<ViewModelListItemException> ItemsOutOfStock { get; set; }
     }
 }

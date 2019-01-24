@@ -188,7 +188,30 @@ namespace IMarket.DAL
 
         { 
             return Stock.GroupBy(x => x.Name, (a,b) => new ViewModelListItem {Name = a, Color = b.First().Color.ToString(), Type = b.First().ConcreteType.ToString(), Count = b.Count(),
-               Weight = b.Sum(i => i.Weight * b.Count())});
+               Weight = b.Sum(i => i.Weight)});
+        }
+
+        public static IEnumerable<ViewModelListItemException> GetByGroupFromItemNotFound()
+        {
+            return ItemNotFound.GroupBy(x => x.Name, (a, b) => new ViewModelListItemException { Name = a,
+                                                                                                Color = b.First().Color.ToString(),
+                                                                                                Type = b.First().ConcreteType.ToString(),
+                                                                                                Count = b.Count(),
+                                                                                                Weight = b.Sum(i => i.Weight),
+                                                                                                ReceivedTime = b.First().DeliveryTime});
+        }
+
+        public static IEnumerable<ViewModelListItemException> GetByGroupFromItemNoPlaceInStock()
+        {
+            return ItemNoPlaceInStock.GroupBy(x => x.Name, (a, b) => new ViewModelListItemException
+            {
+                Name = a,
+                Color = b.First().Color.ToString(),
+                Type = b.First().ConcreteType.ToString(),
+                Count = b.Count(),
+                Weight = b.Sum(i => i.Weight),
+                ReceivedTime = b.First().DeliveryTime
+            });
         }
     }
 }

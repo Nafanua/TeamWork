@@ -8,6 +8,6 @@ namespace IMarket.Models
 {
     public class ProductsNotFoundViewModel
     {
-        public IEnumerable<ItemBase> ItemsNotFound { get; set; }
+        public IEnumerable<ViewModelListItemException> ItemsNotFound { get; set; }
     }
 }
