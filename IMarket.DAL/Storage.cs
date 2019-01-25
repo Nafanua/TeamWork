@@ -93,7 +93,7 @@ namespace IMarket.DAL
 
         public static double GetStorageCapacity()
         {
-            return Stock.Sum(i => (i.Weight * i.Quantity));
+            return Stock.Sum(i => (i.Weight));
         }
 
         public static bool AddToStorage(ItemBase item)
@@ -151,14 +151,14 @@ namespace IMarket.DAL
             ItemNoPlaceInStock.Add(item);
         }
 
-        public static bool Sell(ItemBase item)
+        public static bool Sell(string name)
         {
             lock (locker)
             {
-                if (Stock.Contains(item))
+                if (ContainByName(name))
                 {
-                    Stock.Remove(item);
-
+                    var it = Stock.Where(x => x.Name == name).OrderBy(x => x.DeliveryTime).First();
+                    Stock.Remove(it);
                     return true;
                 }
             }
@@ -166,16 +166,18 @@ namespace IMarket.DAL
             return false;
         }
 
-        public static bool Sell(int index, int quantity)
+        public static int GetCountByName(string name)
         {
-            lock (locker)
+            return Stock.GroupBy(x => x.Name).Count();
+        }
+
+        private static bool ContainByName(string name)
+        {
+            if (Stock.Any(x => x.Name == name))
             {
-                if (Stock[index].Quantity > quantity)
-                {
-                    Stock[index].Quantity -= quantity;
-                    return true;
-                }
+                return true;
             }
+
             return false;
         }
 
@@ -188,7 +190,7 @@ namespace IMarket.DAL
 
         { 
             return Stock.GroupBy(x => x.Name, (a,b) => new ViewModelListItem {Name = a, Color = b.First().Color.ToString(), Type = b.First().ConcreteType.ToString(), Count = b.Count(),
-               Weight = b.Sum(i => i.Weight * b.Count())});
+               Weight = b.Sum(i => i.Weight)});
         }
     }
 }
