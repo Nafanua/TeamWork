@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Threading;
+using System.Threading.Tasks;
 using IMarket.DAL;
 using IMarket.Models.Models;
 using IMarket.Models.Models.Enums;
@@ -10,13 +12,26 @@ namespace IMarket.BusinessLogic.Utils
     public static class Randomizer
     {
         static Random Rnd = new Random(DateTime.Now.Millisecond);
+        static Task[] Tasks = new Task[2] { new Task(() => Buy()), new Task(() => Sell()) };
+        static  EventWaitHandle WaitHandler = new ManualResetEvent(true);
+
 
         public static void Start()
         {
-            var threadBuy = new Thread(Buy);
-            var threadSell = new Thread(Sell);
-            threadBuy.Start();
-            threadSell.Start();
+            foreach (var task in Tasks)
+            {
+                task.Start();
+            }
+        }
+
+        public static void TasksPause()
+        {
+            WaitHandler.Reset();
+        }
+
+        public static void TasksResume()
+        {
+            WaitHandler.Set();
         }
 
         private static void Buy()
@@ -27,6 +42,7 @@ namespace IMarket.BusinessLogic.Utils
 
             while (true)
             {
+                WaitHandler.WaitOne();
                 var item = GenerateProduct();
 
                 for (var i = 1; i < Rnd.Next(10,30); i++)
@@ -50,6 +66,7 @@ namespace IMarket.BusinessLogic.Utils
           //  var rnd = new Random(DateTime.Now.Millisecond);
             while (true)
             {
+                WaitHandler.WaitOne();
                 var item = GenerateProduct();
 
                 for (var i = 0; i < Rnd.Next(1, 30); i++)
