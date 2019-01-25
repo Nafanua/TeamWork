@@ -2,6 +2,7 @@
 using IMarket.DAL;
 using IMarket.Models.Models;
 using System.Collections.Generic;
+using IMarket.BusinessLogic.Utils;
 
 namespace IMarket.BusinessLogic.Services
 {
@@ -9,22 +10,38 @@ namespace IMarket.BusinessLogic.Services
     {
         public int GetCountOfItemsInStock()
         {
-            return Storage.GetCountOfItemsInStock();
+            Randomizer.TasksPause();
+            var result = Storage.GetCountOfItemsInStock();
+            Randomizer.TasksResume();
+
+            return result;
         }
 
         public IEnumerable<ItemBase> GetProducts()
         {
-            return Storage.GetAll();
+            Randomizer.TasksPause();
+            var result = Storage.GetAll();
+            Randomizer.TasksResume();
+
+            return result;
         }
 
         public IEnumerable<ItemBase> GetProductsNoPlaceInStock()
         {
-            return Storage.GetAllItemsOutOfStock();
+            Randomizer.TasksPause();
+            var result = Storage.GetAllItemsOutOfStock();
+            Randomizer.TasksResume();
+
+            return result;
         }
 
         public IEnumerable<ItemBase> GetProductsNotFound()
         {
-            return Storage.GetAllItemNotFound();
+            Randomizer.TasksPause();
+            var result = Storage.GetAllItemNotFound();
+            Randomizer.TasksResume();
+
+            return result;
         }
     }
 }
