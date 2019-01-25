@@ -151,14 +151,14 @@ namespace IMarket.DAL
             ItemNoPlaceInStock.Add(item);
         }
 
-        public static bool Sell(ItemBase item)
+        public static bool Sell(string name)
         {
             lock (locker)
             {
-                if (Stock.Contains(item))
+                if (ContainByName(name))
                 {
-                    Stock.Remove(item);
-
+                    var it = Stock.Where(x => x.Name == name).OrderBy(x => x.DeliveryTime).First();
+                    Stock.Remove(it);
                     return true;
                 }
             }
@@ -166,18 +166,20 @@ namespace IMarket.DAL
             return false;
         }
 
-        //public static bool Sell(int index, int quantity)
-        //{
-        //    lock (locker)
-        //    {
-        //        if (Stock[index].Quantity > quantity)
-        //        {
-        //            Stock[index].Quantity -= quantity;
-        //            return true;
-        //        }
-        //    }
-        //    return false;
-        //}
+        public static int GetCountByName(string name)
+        {
+            return Stock.GroupBy(x => x.Name).Count();
+        }
+
+        private static bool ContainByName(string name)
+        {
+            if (Stock.Any(x => x.Name == name))
+            {
+                return true;
+            }
+
+            return false;
+        }
 
         public static ItemBase GetItemByIndex(int index)
         {
@@ -185,8 +187,8 @@ namespace IMarket.DAL
         }
 
         public static IEnumerable<ViewModelListItem> GetByGroupFromStorage()
-
         { 
+            
             return Stock.GroupBy(x => x.Name, (a,b) => new ViewModelListItem {Name = a, Color = b.First().Color.ToString(), Type = b.First().ConcreteType.ToString(), Count = b.Count(),
                Weight = b.Sum(i => i.Weight)});
         }

@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Threading;
+using System.Threading.Tasks;
 using IMarket.DAL;
 using IMarket.Models.Models;
 using IMarket.Models.Models.Enums;
@@ -9,105 +11,135 @@ namespace IMarket.BusinessLogic.Utils
 {
     public static class Randomizer
     {
+        static Random Rnd = new Random(DateTime.Now.Millisecond);
+        static Task[] Tasks = new Task[2] { new Task(() => Buy()), new Task(() => Sell()) };
+        static  EventWaitHandle WaitHandler = new ManualResetEvent(true);
+
+
         public static void Start()
         {
-            var threadBuy = new Thread(Buy);
-            var threadSell = new Thread(Sell);
-            threadBuy.Start();
-            threadSell.Start();
+            foreach (var task in Tasks)
+            {
+                task.Start();
+            }
+        }
+
+        public static void TasksPause()
+        {
+            WaitHandler.Reset();
+        }
+
+        public static void TasksResume()
+        {
+            WaitHandler.Set();
         }
 
         private static void Buy()
         {
             Thread.Sleep(5000);
 
-            var rnd = new Random();
+           // var rnd = new Random();
 
             while (true)
             {
+                WaitHandler.WaitOne();
                 var item = GenerateProduct();
 
-                if (item != null && item.Weight < Storage.MaximumStorageCapacity - Storage.GetStorageCapacity())
+
+             
+
+                for (var i = 1; i < Rnd.Next(10,30); i++)
                 {
-                    Storage.AddToStorage(item);
+                    if (item != null && item.Weight < Storage.MaximumStorageCapacity - Storage.GetStorageCapacity())
+                    {
+                        Storage.AddToStorage(item);
+                    }
+                    else
+                    {
+                        Storage.AddToNoPlaceInStock(item);
+                    }
                 }
-                else
-                {
-                    Storage.AddToNoPlaceInStock(item);
-                }
-                Thread.Sleep(rnd.Next(15000));
+                Thread.Sleep(Rnd.Next(15000));
             }
         }
 
         private static void Sell()
         {
             Thread.Sleep(5000);
-
-            var rnd = new Random();
+          //  var rnd = new Random(DateTime.Now.Millisecond);
             while (true)
             {
-                var index = rnd.Next(Storage.GetCountOfItemsInStock());
-                var item = Storage.GetItemByIndex(index);
-              //  var itemRnd = item;
+                WaitHandler.WaitOne();
+                var item = GenerateProduct();
 
-                Storage.Sell(item);
-
-                Thread.Sleep(rnd.Next(30000));
+                for (var i = 0; i < Rnd.Next(1, 30); i++)
+                {
+                    if (!Storage.Sell(item.Name))
+                    {
+                        Storage.AddToItemNotFound(item);
+                    }
+                }
+                Thread.Sleep(Rnd.Next(15000));
             }
         }
 
         private static ItemBase GenerateProduct()
         {
-            var rnd = new Random();
-            var color = ((Color)rnd.Next(3));
+        //    var rnd = new Random();
+            var color = ((Color)Rnd.Next(7));
             ItemBase item = default;
 
-            switch (rnd.Next(1, 5))
+            
+            switch (Rnd.Next(1, 5))
             {
                 case 1:
-                    var clothesType = (ConcreteType)rnd.Next(4,7);
+                    var clothesType = (ConcreteType)Rnd.Next(4,7);
                     item = new ClothesModel(clothesType)
                     {
                         ConcreteType = clothesType,
                         Color = color,
                         DeliveryTime = DateTime.Now,
                         Name = $"{color} {clothesType}",
-                        Size = rnd.Next(36, 58).ToString(),
+                        Size = Rnd.Next(36, 58).ToString(),
+                  //      Quantity = rnd.Next(5, 20),
                         Type = GeneralType.Clothes
                     };
                     break;
                 case 2:
-                    var ballType = (ConcreteType)rnd.Next(0,4);
+                    var ballType = (ConcreteType)Rnd.Next(0,4);
                     item = new BallModel(ballType)
                     {
                         ConcreteType = ballType,
                         Color = color,
                         DeliveryTime = DateTime.Now,
                         Name = $"{color} {ballType}",
-                        Diameter = rnd.Next(18, 28),
+                        Diameter = Rnd.Next(18, 28),
+                    //    Quantity = rnd.Next(5, 20),
                         Type = GeneralType.Ball
                     };
                     break;
                 case 3:
-                    var sportsAccessoriesType = (ConcreteType)rnd.Next(7,11);
+                    var sportsAccessoriesType = (ConcreteType)Rnd.Next(7,11);
                     item = new SportsAccessoriesModel(sportsAccessoriesType)
                     {
                         ConcreteType = sportsAccessoriesType,
                         Color = color,
                         DeliveryTime = DateTime.Now,
                         Name = $"{color} {sportsAccessoriesType}",
+                    //    Quantity = rnd.Next(5, 20),
                         Type = GeneralType.SportAccessories
                     };
                     break;
                 case 4:
-                    var winterSportsType = (ConcreteType)rnd.Next(10,13);
+                    var winterSportsType = (ConcreteType)Rnd.Next(10,13);
                     item = new WinterSportsModel(winterSportsType)
                     {
                         ConcreteType = winterSportsType,
                         Color = color,
                         DeliveryTime = DateTime.Now,
                         Name = $"{color} {winterSportsType}",
-                        Lenght = (double)rnd.Next(10, 15) / 10,
+                        Lenght = (double)Rnd.Next(10, 15) / 10,
+                     //   Quantity = rnd.Next(5, 20),
                         Type = GeneralType.WinterSport
                     };
                     break;
