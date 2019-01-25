@@ -38,7 +38,7 @@ namespace IMarket.Controllers
         {
             var model = new ProductsNoPlaceInStockViewModel
             {
-                ItemsOutOfStock = _stockService.GetProductsNoPlaceInStock()
+                ItemsOutOfStock = _stockService.GetByGroupFromItemNoPlaceInStock()
             };
 
             return View(model);
@@ -48,7 +48,7 @@ namespace IMarket.Controllers
         {
             var model = new ProductsNotFoundViewModel
             {
-                ItemsNotFound = _stockService.GetProductsNotFound()
+                ItemsNotFound = _stockService.GetByGroupFromItemNotFound()
             };
 
             return View(model);

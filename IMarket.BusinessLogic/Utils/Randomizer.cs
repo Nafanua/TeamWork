@@ -45,6 +45,9 @@ namespace IMarket.BusinessLogic.Utils
                 WaitHandler.WaitOne();
                 var item = GenerateProduct();
 
+
+             
+
                 for (var i = 1; i < Rnd.Next(10,30); i++)
                 {
                     if (item != null && item.Weight < Storage.MaximumStorageCapacity - Storage.GetStorageCapacity())
@@ -76,7 +79,6 @@ namespace IMarket.BusinessLogic.Utils
                         Storage.AddToItemNotFound(item);
                     }
                 }
-
                 Thread.Sleep(Rnd.Next(15000));
             }
         }

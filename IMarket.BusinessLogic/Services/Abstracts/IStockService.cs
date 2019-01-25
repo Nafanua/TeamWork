@@ -13,5 +13,7 @@ namespace IMarket.BusinessLogic.Services.Abstracts
         IEnumerable<ItemBase> GetProducts();
         IEnumerable<ItemBase> GetProductsNoPlaceInStock();
         IEnumerable<ItemBase> GetProductsNotFound();
+        IEnumerable<ViewModelListItemException> GetByGroupFromItemNotFound();
+        IEnumerable<ViewModelListItemException> GetByGroupFromItemNoPlaceInStock();
     }
 }

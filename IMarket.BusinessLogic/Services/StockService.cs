@@ -8,6 +8,16 @@ namespace IMarket.BusinessLogic.Services
 {
     public class StockService : IStockService
     {
+        public IEnumerable<ViewModelListItemException> GetByGroupFromItemNoPlaceInStock()
+        {
+            return Storage.GetByGroupFromItemNoPlaceInStock();
+        }
+
+        public IEnumerable<ViewModelListItemException> GetByGroupFromItemNotFound()
+        {
+            return Storage.GetByGroupFromItemNotFound();
+        }
+
         public int GetCountOfItemsInStock()
         {
             Randomizer.TasksPause();
